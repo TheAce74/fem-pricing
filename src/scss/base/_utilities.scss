@@ -1,0 +1,11 @@
+//utility classes, sass placeholders and css custom properties
+@use "../abstracts" as *;
+:root {
+  @each $key, $value in $clr-primary {
+    --clr-primary-#{$key}: #{$value};
+  }
+
+  @each $key, $value in $clr-neutral {
+    --clr-neutral-#{$key}: #{$value};
+  }
+}
