@@ -9,3 +9,14 @@
     --clr-neutral-#{$key}: #{$value};
   }
 }
+
+.btn {
+  border: none;
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

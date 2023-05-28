@@ -1,0 +1,119 @@
+@use "../abstracts" as *;
+@use "../base" as *;
+.toggle {
+  @extend .flex;
+  gap: 1em;
+  font-weight: 700;
+  color: var(--clr-neutral-200);
+
+  button {
+    @extend .btn;
+    width: 2.5em;
+    aspect-ratio: 2;
+    border-radius: 100vmax;
+    background-color: var(--clr-neutral-200);
+    padding: 0.2em;
+    transition: padding 0.5s, background-color 0.5s;
+
+    &[data-checked="true"] {
+      background-color: var(--clr-primary-400);
+      padding-left: 1.3em;
+    }
+
+    div {
+      width: 1em;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: var(--clr-neutral-100);
+    }
+  }
+}
+
+.cards {
+  @extend .flex;
+  min-height: calc(100dvh - 10em);
+  gap: 0.6em;
+
+  @include max(medium) {
+    flex-direction: column;
+    margin-top: 2em;
+    gap: 2em;
+    padding-bottom: 3em;
+  }
+}
+
+.card {
+  --border: var(--clr-neutral-300);
+  background-color: var(--clr-neutral-100);
+  box-shadow: 0px 0px 6px var(--clr-neutral-200);
+  padding: 1em 1.5em;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 0.5em;
+
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5em;
+  }
+
+  p:first-of-type {
+    font-size: 2.5rem;
+    margin-bottom: 0.5em;
+
+    @include max(medium) {
+      font-size: 3rem;
+    }
+  }
+
+  p:not(:first-of-type) {
+    border-top: 1px solid var(--border);
+    padding-block: 0.8em;
+  }
+
+  p:last-of-type {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5em;
+  }
+
+  button {
+    @extend .btn;
+    border: 1px solid transparent;
+    width: 100%;
+    background-color: var(--clr-primary-400);
+    color: var(--clr-neutral-100);
+    border-radius: 0.3em;
+    padding: 0.4em 3em;
+
+    &:is(:hover, :focus-visible) {
+      border: 1px solid var(--clr-primary-400);
+      color: var(--clr-primary-400);
+      background-color: var(--clr-neutral-100);
+    }
+
+    @include max(medium) {
+      padding: 0.8em 6em;
+    }
+  }
+
+  &:nth-child(2) {
+    --border: var(--clr-neutral-100);
+    background-color: var(--clr-primary-400);
+    color: var(--clr-neutral-100);
+    scale: 1.1;
+
+    button {
+      background-color: var(--clr-neutral-100);
+      color: var(--clr-primary-400);
+
+      &:is(:hover, :focus-visible) {
+        border: 1px solid var(--clr-neutral-100);
+        color: var(--clr-neutral-100);
+        background-color: var(--clr-primary-400);
+      }
+    }
+
+    @include max(medium) {
+      scale: 1;
+    }
+  }
+}
